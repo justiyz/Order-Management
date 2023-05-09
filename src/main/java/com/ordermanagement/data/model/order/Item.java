@@ -14,8 +14,8 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "orderItem")
-public class OrderItem {
+@Table(name = "item")
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
