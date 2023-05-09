@@ -1,6 +1,5 @@
 package com.ordermanagement.data.model.product;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -17,6 +16,8 @@ public class Product {
     private int id;
     private String name;
     private BigDecimal price;
+    private String businessId;
+    private String description;
     private String createdDate;
     private String modifiedDate;
 }
