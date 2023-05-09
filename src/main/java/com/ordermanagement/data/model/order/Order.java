@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -25,5 +25,5 @@ public class Order {
     private String orderNumber;
     private BigDecimal totalAmount;
     @OneToMany
-    private List<OrderItem> orderItems;
+    private List<Item> items;
 }

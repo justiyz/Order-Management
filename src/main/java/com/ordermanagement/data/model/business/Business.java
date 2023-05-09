@@ -1,6 +1,5 @@
 package com.ordermanagement.data.model.business;
 
-import com.ordermanagement.data.model.order.Order;
 import com.ordermanagement.data.model.product.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
