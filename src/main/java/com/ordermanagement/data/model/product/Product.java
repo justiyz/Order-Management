@@ -21,7 +21,7 @@ public class Product {
     private int id;
     private String name;
     private BigDecimal price;
-    private String businessId;
+    private int businessId;
     private String description;
     private String createdDate;
     private String modifiedDate;
