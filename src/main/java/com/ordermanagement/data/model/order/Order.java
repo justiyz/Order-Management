@@ -26,4 +26,5 @@ public class Order {
     private BigDecimal totalAmount;
     @OneToMany
     private List<Item> items;
+    private OrderStatus orderStatus;
 }

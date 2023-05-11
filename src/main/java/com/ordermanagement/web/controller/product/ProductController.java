@@ -41,7 +41,7 @@ public class ProductController {
 
     @GetMapping("/all")
     public ResponseEntity<?> findAllProducts(@RequestParam(defaultValue = "1") int page,
-                                          @RequestParam(defaultValue = "1") int limit) {
+                                             @RequestParam(defaultValue = "1") int limit) {
         ProductResponse response = productServiceImpl.findAllProducts(page, limit);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
