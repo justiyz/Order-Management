@@ -35,7 +35,7 @@ public class BusinessServiceImpl implements BusinessService{
     }
 
     @Override
-    public List<Business> findAllBusiness() {
+    public List<Business> findAllBusinesses() {
         return businessRepository.findAll();
     }
 }
