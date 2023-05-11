@@ -10,5 +10,5 @@ public interface BusinessService {
 
     void registerBusiness(RegisterBusinessDTO dto);
     Business findBusinessById(int businessId) throws OrderManagementException;
-    List<Business> findAllBusiness();
+    List<Business> findAllBusinesses();
 }
