@@ -12,6 +12,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void placeOrder(PlaceOrderDTO dto) {
-
+        Order order = new Order();
+        Item item = new Item();
     }
 }
