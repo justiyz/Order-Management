@@ -32,6 +32,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void placeOrder(PlaceOrderDTO dto) throws OrderManagementException {
         Order order = new Order();
+        order.setCustomerPhoneNumber(dto.getCustomerPhoneNumber());
         order.setOrderNumber(generateOrderNumber(8));
         order.setOrderStatus(OrderStatus.PROCESSING);
         orderRepository.save(order);
@@ -58,6 +59,7 @@ public class OrderServiceImpl implements OrderService {
         order.setTotalAmount(totalAmount);
         order.setCreatedDate(LocalDateTime.now().toString());
         order.setModifiedDate(LocalDateTime.now().toString());
+        orderRepository.save(order);
     }
 
     Product getProduct(int productId) throws OrderManagementException {

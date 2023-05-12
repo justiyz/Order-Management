@@ -25,7 +25,9 @@ public class Order {
     private BigDecimal totalAmount;
     @OneToMany
     private List<Item> items;
+    @Enumerated
     private OrderStatus orderStatus;
+    private String customerPhoneNumber;
     private String createdDate;
     private String modifiedDate;
 }
