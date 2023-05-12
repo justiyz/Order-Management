@@ -21,10 +21,11 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String status;
     private String orderNumber;
     private BigDecimal totalAmount;
     @OneToMany
     private List<Item> items;
     private OrderStatus orderStatus;
+    private String createdDate;
+    private String modifiedDate;
 }

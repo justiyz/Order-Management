@@ -23,6 +23,7 @@ public class Item {
     private int orderId;
     private int productId;
     private int quantity;
+    private BigDecimal subTotal;
     private BigDecimal pricePerItem;
     private String createdDate;
     private String modifiedDate;
