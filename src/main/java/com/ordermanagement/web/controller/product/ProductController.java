@@ -1,12 +1,8 @@
 package com.ordermanagement.web.controller.product;
 
 
-import com.ordermanagement.data.model.business.Business;
 import com.ordermanagement.data.model.product.Product;
-import com.ordermanagement.service.business.BusinessServiceImpl;
-import com.ordermanagement.service.dto.CreateProductDTO;
-import com.ordermanagement.service.dto.RegisterBusinessDTO;
-import com.ordermanagement.service.dto.response.BusinessResponse;
+import com.ordermanagement.service.dto.CreateProductDto;
 import com.ordermanagement.service.dto.response.ProductResponse;
 import com.ordermanagement.service.product.ProductServiceImpl;
 import com.ordermanagement.web.exception.OrderManagementException;
@@ -27,7 +23,7 @@ public class ProductController {
     private ProductServiceImpl productServiceImpl;
 
     @PostMapping
-    public ResponseEntity<?> createProduct(@RequestBody CreateProductDTO dto) throws OrderManagementException {
+    public ResponseEntity<?> createProduct(@RequestBody CreateProductDto dto) throws OrderManagementException {
         productServiceImpl.createProduct(dto);
         ResponseDetails responseDetails = new ResponseDetails(LocalDateTime.now(), "Your product has been created successfully", HttpStatus.OK.toString());
         return new ResponseEntity<>(responseDetails, HttpStatus.OK);

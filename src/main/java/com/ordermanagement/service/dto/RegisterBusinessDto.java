@@ -3,7 +3,7 @@ package com.ordermanagement.service.dto;
 import lombok.Data;
 
 @Data
-public class RegisterBusinessDTO {
+public class RegisterBusinessDto {
 
     private String name;
     private String email;

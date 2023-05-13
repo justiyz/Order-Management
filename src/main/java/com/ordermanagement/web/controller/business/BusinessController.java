@@ -2,7 +2,7 @@ package com.ordermanagement.web.controller.business;
 
 import com.ordermanagement.data.model.business.Business;
 import com.ordermanagement.service.business.BusinessServiceImpl;
-import com.ordermanagement.service.dto.RegisterBusinessDTO;
+import com.ordermanagement.service.dto.RegisterBusinessDto;
 import com.ordermanagement.service.dto.response.BusinessResponse;
 import com.ordermanagement.web.exception.OrderManagementException;
 import com.ordermanagement.web.response.ResponseDetails;
@@ -23,7 +23,7 @@ public class BusinessController {
     private BusinessServiceImpl businessServiceImpl;
 
     @PostMapping
-    public ResponseEntity<?> registerBusiness(@RequestBody RegisterBusinessDTO dto) {
+    public ResponseEntity<?> registerBusiness(@RequestBody RegisterBusinessDto dto) {
         businessServiceImpl.registerBusiness(dto);
         ResponseDetails responseDetails = new ResponseDetails(LocalDateTime.now(), "Your business has been created successfully", HttpStatus.OK.toString());
         return new ResponseEntity<>(responseDetails, HttpStatus.OK);

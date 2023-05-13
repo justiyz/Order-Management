@@ -1,6 +1,6 @@
 package com.ordermanagement.web.controller.order;
 
-import com.ordermanagement.service.dto.PlaceOrderDTO;
+import com.ordermanagement.service.dto.PlaceOrderDto;
 import com.ordermanagement.service.order.OrderServiceImpl;
 import com.ordermanagement.web.exception.OrderManagementException;
 import com.ordermanagement.web.response.ResponseDetails;
@@ -23,7 +23,7 @@ public class OrderController {
 
 
     @PostMapping
-    public ResponseEntity<?> createOrder(@RequestBody PlaceOrderDTO dto) throws OrderManagementException {
+    public ResponseEntity<?> createOrder(@RequestBody PlaceOrderDto dto) throws OrderManagementException {
         orderServiceImpl.placeOrder(dto);
         ResponseDetails responseDetails = new ResponseDetails(LocalDateTime.now(), "Your Order has been created successfully", HttpStatus.OK.toString());
         return new ResponseEntity<>(responseDetails, HttpStatus.OK);

@@ -5,10 +5,10 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class PlaceOrderDTO {
+public class PlaceOrderDto {
 
     private String orderDate;
     private String orderStatus;
-    private List<ItemsDTO> items;
+    private List<ItemsDto> items;
     private String customerPhoneNumber;
 }
