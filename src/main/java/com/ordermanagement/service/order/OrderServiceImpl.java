@@ -7,8 +7,8 @@ import com.ordermanagement.data.model.product.Product;
 import com.ordermanagement.data.repository.order.ItemRepository;
 import com.ordermanagement.data.repository.order.OrderRepository;
 import com.ordermanagement.data.repository.product.ProductRepository;
-import com.ordermanagement.service.dto.ItemsDTO;
-import com.ordermanagement.service.dto.PlaceOrderDTO;
+import com.ordermanagement.service.dto.ItemsDto;
+import com.ordermanagement.service.dto.PlaceOrderDto;
 import com.ordermanagement.web.exception.OrderManagementException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
     ProductRepository productRepository;
 
     @Override
-    public void placeOrder(PlaceOrderDTO dto) throws OrderManagementException {
+    public void placeOrder(PlaceOrderDto dto) throws OrderManagementException {
         Order order = new Order();
         order.setCustomerPhoneNumber(dto.getCustomerPhoneNumber());
         order.setOrderNumber(generateOrderNumber(8));
@@ -40,7 +40,7 @@ public class OrderServiceImpl implements OrderService {
         Item item;
         Product product;
         BigDecimal totalAmount = BigDecimal.ZERO;
-        for (ItemsDTO itemsDTO: dto.getItems()){
+        for (ItemsDto itemsDTO: dto.getItems()){
             item = new Item();
             product = getProduct(itemsDTO.getProductId());
 

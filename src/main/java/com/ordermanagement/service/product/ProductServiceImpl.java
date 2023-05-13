@@ -1,11 +1,9 @@
 package com.ordermanagement.service.product;
 
-import com.ordermanagement.data.model.business.Business;
 import com.ordermanagement.data.model.product.Product;
 import com.ordermanagement.data.repository.business.BusinessRepository;
 import com.ordermanagement.data.repository.product.ProductRepository;
-import com.ordermanagement.service.dto.CreateProductDTO;
-import com.ordermanagement.service.dto.RegisterBusinessDTO;
+import com.ordermanagement.service.dto.CreateProductDto;
 import com.ordermanagement.service.dto.response.ProductResponse;
 import com.ordermanagement.web.exception.OrderManagementException;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +15,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Slf4j
 @Service
@@ -31,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
     private BusinessRepository businessRepository;
 
     @Override
-    public void createProduct(CreateProductDTO dto) throws OrderManagementException {
+    public void createProduct(CreateProductDto dto) throws OrderManagementException {
         if (!businessRepository.existsById(dto.getBusinessId())) {
             throw new OrderManagementException("Business not found");
         }
