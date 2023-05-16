@@ -40,7 +40,7 @@ public class OrderServiceImpl implements OrderService {
         Item item;
         Product product;
         BigDecimal totalAmount = BigDecimal.ZERO;
-        for (ItemsDto itemsDTO: dto.getItems()){
+        for (ItemsDto itemsDTO : dto.getItems()) {
             item = new Item();
             product = getProduct(itemsDTO.getProductId());
 
@@ -64,10 +64,10 @@ public class OrderServiceImpl implements OrderService {
 
     Product getProduct(int productId) throws OrderManagementException {
         return productRepository.findById(productId)
-                .orElseThrow(()-> new OrderManagementException("Product not found"));
+                .orElseThrow(() -> new OrderManagementException("Product not found"));
     }
 
-    private String generateOrderNumber(int length){
+    private String generateOrderNumber(int length) {
         return UUID.randomUUID().toString().replace("-", "").substring(0, length);
     }
 }

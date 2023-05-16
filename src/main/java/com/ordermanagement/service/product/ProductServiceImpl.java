@@ -41,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product findProductById(int businessId) throws OrderManagementException {
         return productRepository.findById(businessId)
-                .orElseThrow(()-> new OrderManagementException("Product not found"));
+                .orElseThrow(() -> new OrderManagementException("Product not found"));
     }
 
     @Override
