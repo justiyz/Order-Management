@@ -19,6 +19,7 @@ public class TwilioWhatsapp {
             customerPhoneNumber = "234" + customerPhoneNumber.substring(1);
         }
         log.info("CUSTOMER PHONE NUMBER -> {}", customerPhoneNumber);
+        log.info("ACCOUNT_SID & AUTH_TOKEN -> {} - {}", ACCOUNT_SID, AUTH_TOKEN);
 
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message.creator(
