@@ -3,18 +3,22 @@ package com.ordermanagement.service.notification.whatsapp;
 
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
-import lombok.extern.slf4j.Slf4j;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 @Slf4j
+@Service
 public class TwilioWhatsapp {
 
     @Value("${ACCOUNT_SID}")
-    public static String ACCOUNT_SID;
+    public String ACCOUNT_SID;
     @Value("${AUTH_TOKEN}")
-    public static String AUTH_TOKEN;
+    public String AUTH_TOKEN;
 
-    public static void sendWhatsAppMessage(String messageDetails, String customerPhoneNumber){
+
+    public void sendWhatsAppMessage(String messageDetails, String customerPhoneNumber){
         if (customerPhoneNumber != null && customerPhoneNumber.startsWith("0")){
             customerPhoneNumber = "234" + customerPhoneNumber.substring(1);
         }
