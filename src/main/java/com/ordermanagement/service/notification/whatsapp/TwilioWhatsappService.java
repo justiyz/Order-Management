@@ -3,14 +3,13 @@ package com.ordermanagement.service.notification.whatsapp;
 
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class TwilioWhatsapp {
+public class TwilioWhatsappService {
 
     @Value("${ACCOUNT_SID}")
     public String ACCOUNT_SID;
@@ -22,12 +21,8 @@ public class TwilioWhatsapp {
         if (customerPhoneNumber != null && customerPhoneNumber.startsWith("0")){
             customerPhoneNumber = "234" + customerPhoneNumber.substring(1);
         }
-        log.info("CUSTOMER PHONE NUMBER -> {}", customerPhoneNumber);
-        log.info("ACCOUNT_SID & AUTH_TOKEN -> {} - {}", ACCOUNT_SID, AUTH_TOKEN);
-
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message.creator(
-//                        new com.twilio.type.PhoneNumber("whatsapp:+2347080258886"),
                         new com.twilio.type.PhoneNumber("whatsapp:+"+customerPhoneNumber),
                         new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),
                         messageDetails)
