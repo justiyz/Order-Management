@@ -9,6 +9,7 @@ import com.ordermanagement.data.repository.order.OrderRepository;
 import com.ordermanagement.data.repository.product.ProductRepository;
 import com.ordermanagement.service.dto.ItemsDto;
 import com.ordermanagement.service.dto.PlaceOrderDto;
+import com.ordermanagement.service.notification.whatsapp.TwilioWhatsapp;
 import com.ordermanagement.web.exception.OrderManagementException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,8 @@ public class OrderServiceImpl implements OrderService {
         order.setCreatedDate(LocalDateTime.now().toString());
         order.setModifiedDate(LocalDateTime.now().toString());
         orderRepository.save(order);
+
+        TwilioWhatsapp.sendWhatsAppMessage(order.toString(), dto.getCustomerPhoneNumber());
     }
 
     Product getProduct(int productId) throws OrderManagementException {
