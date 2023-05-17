@@ -29,6 +29,8 @@ public class OrderServiceImpl implements OrderService {
     ItemRepository itemRepository;
     @Autowired
     ProductRepository productRepository;
+    @Autowired
+    TwilioWhatsapp twilioWhatsapp;
 
     @Override
     public void placeOrder(PlaceOrderDto dto) throws OrderManagementException {
@@ -62,7 +64,8 @@ public class OrderServiceImpl implements OrderService {
         order.setModifiedDate(LocalDateTime.now().toString());
         orderRepository.save(order);
 
-        TwilioWhatsapp.sendWhatsAppMessage(order.toString(), dto.getCustomerPhoneNumber());
+//        TwilioWhatsapp.sendWhatsAppMessage(order.toString(), dto.getCustomerPhoneNumber());
+        twilioWhatsapp.sendWhatsAppMessage(order.toString(), dto.getCustomerPhoneNumber());
     }
 
     Product getProduct(int productId) throws OrderManagementException {
