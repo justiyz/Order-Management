@@ -19,7 +19,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Slf4j
 @Service
 public class OrderServiceImpl implements OrderService {
 
